@@ -25,11 +25,8 @@ public class ListarUsuarios extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 
-		HttpSession sessao = request.getSession();
-		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-		listaUsuarios = UsuarioFacade.listarClientes();
+		List<Usuario> listaUsuarios = UsuarioFacade.listarClientes();
 		String proximo = "/usuario.jsp";
 		
 		request.setAttribute("Usu", listaUsuarios);

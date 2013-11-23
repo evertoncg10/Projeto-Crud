@@ -17,17 +17,21 @@ public class Conexao {
 
 		try {
 			// tentando realizar conexão
-
 			if (connection == null) {
+
+				// obrigatório utilização
+				Class.forName("com.mysql.jdbc.Driver");
 
 				connection = DriverManager.getConnection(url, usuario, senha);
 
 			}
 
 			System.out.println("Conexão OK.");
-			//return connection;
+			// return connection;
 
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return connection;
@@ -69,16 +73,10 @@ public class Conexao {
 
 	}
 
-/*	
-	public static void main(String[] args) {
-		try {
-			getConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-*/
+	/*
+	 * public static void main(String[] args) { try { getConnection(); } catch
+	 * (SQLException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } }
+	 */
 
 }
